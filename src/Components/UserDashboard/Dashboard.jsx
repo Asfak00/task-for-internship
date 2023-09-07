@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div className="800px:w-[300px] w-[80px]">
         <DashboardSidebar />
       </div>
-      <div>
+      <div className="w-[85%]">
         <DashboardContent />
       </div>
     </section>

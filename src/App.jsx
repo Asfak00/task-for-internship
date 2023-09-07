@@ -19,7 +19,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
-          <Route path="/create-task" element={<CreateTask />} />
         </Routes>
       </BrowserRouter>
     </>

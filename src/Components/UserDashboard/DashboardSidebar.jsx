@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // avatar image
 import avatar from "../../assets/avatar.png";
@@ -12,8 +12,10 @@ import { RxAvatar } from "react-icons/rx";
 
 // styles
 import styles from "../../styles/styles";
+import CreateTask from "./CreateTask";
 
 const DashboardSidebar = () => {
+  const [createTask, setCreateTask] = useState(false);
   return (
     <>
       <aside className="w-full bg-[#D9E1F2] p-8 h-[100vh]">
@@ -27,7 +29,8 @@ const DashboardSidebar = () => {
         </div>
 
         <button
-          className={`${styles.button} flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center mt-12`}>
+          className={`${styles.button} flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center mt-12`}
+          onClick={() => setCreateTask(true)}>
           <p className="text-[1.2rem] font-semibold 800px:block hidden">
             Create Task
           </p>
@@ -58,6 +61,7 @@ const DashboardSidebar = () => {
           Logout
         </button>
       </aside>
+      {createTask && <CreateTask setCreateTask={setCreateTask} />}
     </>
   );
 };
