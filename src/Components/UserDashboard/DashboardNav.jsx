@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-const DashboardNav = () => {
-  const [active, setActive] = useState(1);
+const DashboardNav = ({ active, setActive }) => {
   return (
     <nav className="bg-[#C6D3EC] w-full flex items-center justify-center">
       <ul className="flex items-center justify-between w-[70%] mx-auto">
