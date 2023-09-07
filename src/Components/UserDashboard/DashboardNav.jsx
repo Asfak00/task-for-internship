@@ -3,11 +3,12 @@ import React, { useState } from "react";
 const DashboardNav = ({ active, setActive }) => {
   // get dark or light from localstorage
   const darkTheme = JSON.parse(localStorage.getItem("theme"));
+
   return (
     <nav
       className={`${
-        darkTheme ? "bg-[#132039]" : ""
-      } bg-[#C6D3EC] w-full flex items-center justify-center`}>
+        darkTheme ? "bg-[#132039]" : "bg-[#C6D3EC]"
+      }  w-full flex items-center justify-center`}>
       <ul
         className={`${
           darkTheme ? "text-[#D9E1F2]" : ""

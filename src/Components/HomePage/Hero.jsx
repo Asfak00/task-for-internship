@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="dark:text-[#9bbbfa] px-8 max-w-[1200px] mx-auto mt-24 flex justify-between items-center">
-      <div className="w-[50%] ">
-        <h1 className="dark:text-[#9bbbfa] text-5xl text-[#132039] font-bold">
+    <section className="dark:text-[#9bbbfa] px-8 max-w-[1200px] mx-auto 800px:mt-24 mt-8 flex justify-between items-center 800px:flex-row flex-col">
+      <div className="800px:w-[50%] w-full ">
+        <h1 className="dark:text-[#9bbbfa] 800px:text-5xl text-4xl text-[#132039] font-bold">
           Smash all of your <br /> ideas into one place
         </h1>
-        <p className="w-[85%] dark:text-slate-500 text-[#264073] mt-4 mb-12">
+        <p className="w-[85%] dark:text-slate-500 text-[#264073] mt-4 800px:mb-12 mb-3">
           <b className="dark:text-[#7997D2] text-[#264073]">Collaborate</b> with
           your
           <b className="dark:text-[#7997D2] text-[#264073]"> friends</b> to help
@@ -41,13 +41,13 @@ const Hero = () => {
           already enjoying our app
         </p>
       </div>
-      <div className="w-[50%] ">
+      <div className="800px:w-[50%] w-full 800px:mt-0 mt-12 800px:mb-0 mb-24">
         <div className=" relative">
           <img src={pcImage} alt="image/pcImage" className="w-[600px]" />
           <img
             src={mobileImage}
             alt="image/pcImage"
-            className="w-[150px] absolute bottom-[-40%] left-[10%]"
+            className="800px:w-[150px] w-[100px] absolute bottom-[-40%] left-[10%]"
           />
         </div>
       </div>

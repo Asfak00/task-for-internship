@@ -22,7 +22,7 @@ const Modal = ({ setTodoDelete }) => {
 
             <div>
               <h3 className="font-bold text-[1.1rem]">Are you Sure?</h3>
-              <p>This Action might f**k everything up</p>
+              <p>This Action might delete everything up</p>
             </div>
           </div>
           <div className="w-full mt-8 flex items-center justify-end gap-5">

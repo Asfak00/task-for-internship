@@ -13,9 +13,15 @@ import { RxAvatar } from "react-icons/rx";
 // styles
 import styles from "../../styles/styles";
 import CreateTask from "./CreateTask";
+import DashboardContent from "./DashboardContent";
+import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
 
-const DashboardSidebar = () => {
+const DashboardSidebar = ({ setActive, active }) => {
   const [createTask, setCreateTask] = useState(false);
+
+  // use navigate
+  const navigate = useNavigate();
 
   // get dark or light from localstorage
   const darkTheme = JSON.parse(localStorage.getItem("theme"));
@@ -30,7 +36,7 @@ const DashboardSidebar = () => {
       <aside
         className={`w-full ${
           darkTheme ? "bg-[#0D1526]" : "bg-[#D9E1F2]"
-        } 800px:p-8 p-2 800px:py-0 py-8 `}>
+        } 800px:p-8 p-2 800px:py-4 py-8 `}>
         <div className="w-full flex items-center justify-center flex-col">
           <img
             src={PhotoUrl ? PhotoUrl : avatar}
@@ -71,7 +77,8 @@ const DashboardSidebar = () => {
           <button
             className={`${styles.userDashboardBtn} ${
               darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
-            }`}>
+            } ${active === 1 ? "!bg-[#9FB5DF]" : ""}`}
+            onClick={() => setActive(1)}>
             <BiHomeAlt2
               className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073] "}`}
             />
@@ -80,7 +87,8 @@ const DashboardSidebar = () => {
           <button
             className={`${styles.userDashboardBtn} ${
               darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
-            }`}>
+            } ${active === 2 ? "!bg-[#9FB5DF]" : ""}`}
+            onClick={() => setActive(2)}>
             <CiSearch
               className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
             />
@@ -89,7 +97,8 @@ const DashboardSidebar = () => {
           <button
             className={`${styles.userDashboardBtn} ${
               darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
-            }`}>
+            } ${active === 3 ? "bg-[#9FB5DF]" : ""}`}
+            onClick={() => setActive(3)}>
             <IoNotificationsOutline
               className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
             />
@@ -98,7 +107,8 @@ const DashboardSidebar = () => {
           <button
             className={`${styles.userDashboardBtn} ${
               darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
-            }`}>
+            } ${active === 4 ? "!bg-[#9FB5DF]" : ""}`}
+            onClick={() => setActive(4)}>
             <RxAvatar
               className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
             />
@@ -110,8 +120,9 @@ const DashboardSidebar = () => {
           className={`${
             darkTheme
               ? "hover:bg-[#3960AC] bg-[#264073] text-[#D9E1F2]"
-              : "hover:bg-[#9FB5DF]"
-          } bg-[#C6D3EC]  hover:bg-[#9FB5DF] transition duration-300 rounded p-4 mt-12 w-full flex items-center gap-2`}>
+              : "hover:bg-[#9FB5DF]  bg-[#C6D3EC]"
+          }  hover:bg-[#9FB5DF] transition duration-300 rounded p-4 mt-12 w-full flex items-center gap-2`}
+          onClick={() => navigate("/")}>
           <IoLogOutOutline
             className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
           />

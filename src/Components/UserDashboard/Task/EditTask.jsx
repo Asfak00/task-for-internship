@@ -12,10 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 
 // global styles
-import styles from "../../styles/styles";
+import styles from "../../../styles/styles";
 import { redirect, useNavigate } from "react-router-dom";
 
-const CreateTask = ({ setCreateTask }) => {
+const EditTask = ({ setTodoEdit }) => {
   const [title, setTitle] = useState("");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
@@ -34,7 +34,6 @@ const CreateTask = ({ setCreateTask }) => {
     endDate,
     description,
     priority,
-    todoCreated: true,
   };
 
   todos.push(todo);
@@ -58,13 +57,13 @@ const CreateTask = ({ setCreateTask }) => {
           className="w-[90%] 800px:w-[60%] h-[90vh] 800px:h-[75vh] rounded-md  relative shadow-sm overflow-y-scroll bg-[#ECF0F9]">
           <div className="bg-[#C6D3EC] w-full flex items-center justify-between px-8 py-2">
             <h3 className="text-[#132039] font-semibold text-[1.2rem]">
-              Create Task
+              Edit Task
             </h3>
             <RxCross1
               size={40}
               color="#333"
               className=" text-[#132039] cursor-pointer p-2 hover:bg-gray-200 hover:text-gray-50 rounded-full"
-              onClick={() => setCreateTask(false)}
+              onClick={() => setTodoEdit(false)}
             />
           </div>
 
@@ -166,7 +165,7 @@ const CreateTask = ({ setCreateTask }) => {
             <button
               type="submit"
               className={`${styles.button} flex mt-8 items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center`}>
-              Create Task
+              Submit
             </button>
           </form>
         </motion.div>
@@ -189,4 +188,4 @@ const CreateTask = ({ setCreateTask }) => {
   );
 };
 
-export default CreateTask;
+export default EditTask;

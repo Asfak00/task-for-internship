@@ -5,16 +5,20 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import Modal from "../../Modal/Modal";
+import EditTask from "./EditTask";
 
-const Task = () => {
+const Task = ({ todoData }) => {
   const [todoDelete, setTodoDelete] = useState(false);
   const [todoEdit, setTodoEdit] = useState(false);
+  const [completedTask, setCompletedTask] = useState(
+    JSON.parse(localStorage.getItem("isCompleted")) || false
+  );
 
   // get dark or light from localstorage
   const darkTheme = JSON.parse(localStorage.getItem("theme"));
 
-  // getting the todo data from local storage
-  const todoData = JSON.parse(localStorage.getItem("todoItem"));
+  // set the completed task in local storage
+  localStorage.setItem("isCompleted", JSON.stringify(completedTask));
 
   return (
     <>
@@ -31,7 +35,12 @@ const Task = () => {
             } font-bold`}>
             {todoData?.title}
           </h3>
-          <input type="checkbox" className=" cursor-pointer" />
+          <input
+            type="checkbox"
+            checked={completedTask ? true : false}
+            className=" cursor-pointer"
+            onClick={() => setCompletedTask(true)}
+          />
         </div>
 
         <div className="py-4 border-b border-[#8CA6D9]">
@@ -74,6 +83,7 @@ const Task = () => {
       </div>
 
       {todoDelete && <Modal setTodoDelete={setTodoDelete} />}
+      {todoEdit && <EditTask setTodoEdit={setTodoEdit} />}
     </>
   );
 };
