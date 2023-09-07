@@ -8,7 +8,7 @@ const styles = {
 
   noramlFlex: "flex items-center",
   userDashboardBtn:
-    "text-[##132039]  bg-transparent w-full border-[#9FB5DF] outline-none flex items-center hover:bg-[#9FB5DF] transition duration-300 px-4 py-3 gap-2 font-semibold border-b",
+    "text-[##132039]  bg-transparent w-full outline-none flex items-center  transition duration-300 px-4 py-3 gap-2 font-semibold border-b",
 };
 
 export default styles;

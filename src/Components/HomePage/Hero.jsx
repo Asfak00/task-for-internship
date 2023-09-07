@@ -20,9 +20,9 @@ const Hero = () => {
         <p className="w-[85%] dark:text-slate-500 text-[#264073] mt-4 mb-12">
           <b className="dark:text-[#7997D2] text-[#264073]">Collaborate</b> with
           your
-          <b className="dark:text-[#7997D2] text-[#264073]">friends</b> to help
+          <b className="dark:text-[#7997D2] text-[#264073]"> friends</b> to help
           you make your journey of bringing them to live a bit more
-          <b className="dark:text-[#7997D2] text-[#264073]">fun</b>.
+          <b className="dark:text-[#7997D2] text-[#264073]"> fun</b>.
         </p>
         <div className="flex items-center gap-8">
           <Link

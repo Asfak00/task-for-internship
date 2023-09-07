@@ -27,7 +27,7 @@ const Login = () => {
       password === getPasswordFromLocalStorage
     ) {
       toast.success("login success");
-      navigate("/dashboard");
+      navigate("/user-dashboard");
     } else {
       toast.error("Please provide the correct information");
     }

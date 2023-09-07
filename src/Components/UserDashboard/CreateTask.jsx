@@ -13,8 +13,35 @@ import { motion } from "framer-motion";
 
 // global styles
 import styles from "../../styles/styles";
+import { redirect, useNavigate } from "react-router-dom";
 
 const CreateTask = ({ setCreateTask }) => {
+  const [title, setTitle] = useState("");
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
+  const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("");
+
+  const navigate = useNavigate();
+
+  // making all data is an object
+  const createTodo = {
+    title,
+    startDate,
+    endDate,
+    description,
+    priority,
+  };
+
+  // handle on submit
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    // storing data to local storage
+    localStorage.setItem("todoItem", JSON.stringify(createTodo));
+    toast.success("Task Successfully Created!");
+    window.location.reload();
+  };
+
   return (
     <div className="bg-white">
       <div className="w-full h-screen fixed top-0 left-0 bg-[#00000030] flex items-center justify-center z-50">
@@ -35,7 +62,7 @@ const CreateTask = ({ setCreateTask }) => {
             />
           </div>
 
-          <form className="w-full px-8 mt-10">
+          <form className="w-full px-8 mt-10" onSubmit={handleOnSubmit}>
             <label htmlFor="title" className="font-semibold text-[#132039]">
               Title
             </label>
@@ -44,6 +71,9 @@ const CreateTask = ({ setCreateTask }) => {
               type="text"
               name="title"
               id="title"
+              value={title}
+              required
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="Title Here"
               className="bg-[#D9E1F2] w-full mt-2 mb-6 rounded border border-[#9FB5DF] outline-none placeholder:text-[##D9E1F2] py-2 px-4"
             />
@@ -61,6 +91,9 @@ const CreateTask = ({ setCreateTask }) => {
                   type="date"
                   name="startDate"
                   id="startDate"
+                  value={startDate}
+                  required
+                  onChange={(e) => setStartDate(e.target.value)}
                   className="bg-[#D9E1F2] w-full mt-2 mb-6 rounded border border-[#9FB5DF] outline-none placeholder:text-[##D9E1F2] py-2 px-4"
                 />
                 <br />
@@ -77,20 +110,28 @@ const CreateTask = ({ setCreateTask }) => {
                   type="date"
                   name="endDate"
                   id="endDate"
+                  value={endDate}
+                  required
+                  onChange={(e) => setEndDate(e.target.value)}
                   className="bg-[#D9E1F2] w-full mt-2 mb-6 rounded border border-[#9FB5DF] outline-none placeholder:text-[##D9E1F2] py-2 px-4"
                 />
                 <br />
               </div>
             </div>
 
-            <label htmlFor="title" className="font-semibold text-[#132039]">
+            <label
+              htmlFor="Description"
+              className="font-semibold text-[#132039]">
               Description
             </label>
             <br />
             <textarea
               type="text"
-              name="title"
-              id="title"
+              name="Description"
+              id="Description"
+              required
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               placeholder="Description Here"
               className="bg-[#D9E1F2] w-full h-[150px] mt-2 mb-6 rounded border border-[#9FB5DF] outline-none placeholder:text-[##D9E1F2] py-2 px-4"></textarea>
             <br />
@@ -104,6 +145,9 @@ const CreateTask = ({ setCreateTask }) => {
               <select
                 name="priority "
                 id="priority"
+                required
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
                 className="bg-[#D9E1F2] w-[70%] rounded border border-[#9FB5DF] outline-none placeholder:text-[##D9E1F2] py-2 px-4">
                 <option value="normal">Normal</option>
                 <option value="high">High</option>
@@ -111,6 +155,7 @@ const CreateTask = ({ setCreateTask }) => {
             </div>
 
             <button
+              type="submit"
               className={`${styles.button} flex mt-8 items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center`}>
               Create Task
             </button>

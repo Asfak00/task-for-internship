@@ -16,49 +16,106 @@ import CreateTask from "./CreateTask";
 
 const DashboardSidebar = () => {
   const [createTask, setCreateTask] = useState(false);
+
+  // get dark or light from localstorage
+  const darkTheme = JSON.parse(localStorage.getItem("theme"));
+
+  // getting user information from local storage
+  const username = JSON.parse(localStorage.getItem("userName"));
+  const bio = JSON.parse(localStorage.getItem("bio"));
+  const PhotoUrl = JSON.parse(localStorage.getItem("PhotoUrl"));
+
   return (
     <>
-      <aside className="w-full bg-[#D9E1F2] p-8 h-[100vh]">
+      <aside
+        className={`w-full ${
+          darkTheme ? "bg-[#0D1526]" : "bg-[#D9E1F2]"
+        } 800px:p-8 p-2 800px:py-0 py-8 `}>
         <div className="w-full flex items-center justify-center flex-col">
           <img
-            src={avatar}
+            src={PhotoUrl ? PhotoUrl : avatar}
             alt="avatar/image"
-            className="w-[80px] border border-[#406BBF] h-[80px] rounded-full bg-cover bg-no-repeat"
+            className="800px:w-[80px] w-[40px] h-[40px] border border-[#406BBF] 800px:h-[80px] rounded-full bg-cover bg-no-repeat"
           />
-          <h3 className="text-[#406BBF] font-bold text-2xl mt-2">Rahi Ahmed</h3>
+          <h3
+            className={`text-[#406BBF] font-bold text-2xl mt-2 ${
+              darkTheme ? "text-[#7997D2]" : ""
+            } 800px:block hidden`}>
+            {username}
+          </h3>
+          <p
+            className={`text-[#406BBF]  mt-1 text-justify ${
+              darkTheme ? "text-[#7997D2]" : ""
+            } 800px:block hidden`}>
+            {bio}
+          </p>
         </div>
 
         <button
-          className={`${styles.button} flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center mt-12`}
+          className={`${styles.button} ${
+            darkTheme ? "bg-[#7997D2] text-[#0D1526]" : null
+          } flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center mt-12`}
           onClick={() => setCreateTask(true)}>
-          <p className="text-[1.2rem] font-semibold 800px:block hidden">
+          <p className="text-[1rem] font-semibold 800px:block hidden">
             Create Task
           </p>
           <AiOutlinePlus className="font-bold" />
         </button>
 
-        <div className="w-full bg-[#C6D3EC] mt-12">
-          <button className={styles.userDashboardBtn}>
-            <BiHomeAlt2 className="text-[#264073]" />
-            Home
+        <div
+          className={`w-full  ${
+            darkTheme
+              ? "bg-[#264073] !text-[#D9E1F2] !border-[#264073]"
+              : "bg-[#C6D3EC] border-[#9FB5DF] "
+          } mt-12 `}>
+          <button
+            className={`${styles.userDashboardBtn} ${
+              darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
+            }`}>
+            <BiHomeAlt2
+              className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073] "}`}
+            />
+            <p className="800px:block hidden">Home</p>
           </button>
-          <button className={styles.userDashboardBtn}>
-            <CiSearch className="text-[#264073]" />
-            Search
+          <button
+            className={`${styles.userDashboardBtn} ${
+              darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
+            }`}>
+            <CiSearch
+              className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
+            />
+            <p className="800px:block hidden">Search</p>
           </button>
-          <button className={styles.userDashboardBtn}>
-            <IoNotificationsOutline className="text-[#264073]" />
-            Notification
+          <button
+            className={`${styles.userDashboardBtn} ${
+              darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
+            }`}>
+            <IoNotificationsOutline
+              className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
+            />
+            <p className="800px:block hidden">Notification</p>
           </button>
-          <button className={styles.userDashboardBtn}>
-            <RxAvatar className="text-[#264073]" />
-            Account
+          <button
+            className={`${styles.userDashboardBtn} ${
+              darkTheme ? "hover:bg-[#3960AC]" : "hover:bg-[#9FB5DF]"
+            }`}>
+            <RxAvatar
+              className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
+            />
+            <p className="800px:block hidden">Account</p>
           </button>
         </div>
 
-        <button className="bg-[#C6D3EC]  hover:bg-[#9FB5DF] transition duration-300 rounded p-4 mt-12 w-full flex items-center gap-2">
-          <IoLogOutOutline className="text-[#264073]" />
-          Logout
+        <button
+          className={`${
+            darkTheme
+              ? "hover:bg-[#3960AC] bg-[#264073] text-[#D9E1F2]"
+              : "hover:bg-[#9FB5DF]"
+          } bg-[#C6D3EC]  hover:bg-[#9FB5DF] transition duration-300 rounded p-4 mt-12 w-full flex items-center gap-2`}>
+          <IoLogOutOutline
+            className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}
+          />
+          <p className="800px:block hidden">Logout</p>
         </button>
       </aside>
       {createTask && <CreateTask setCreateTask={setCreateTask} />}

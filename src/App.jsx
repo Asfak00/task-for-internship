@@ -11,6 +11,9 @@ import UserDashboard from "./Components/UserDashboard/Dashboard";
 import CreateTask from "./Components/UserDashboard/CreateTask";
 
 function App() {
+  // get authentication from local storage
+  const authenticate = JSON.parse(localStorage.getItem("isAuthenticated"));
+
   return (
     <>
       <BrowserRouter>
