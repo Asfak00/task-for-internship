@@ -4,8 +4,11 @@ import React from "react";
 import styles from "../../styles/styles";
 
 // images
-import mobileImage from "../../assets/mobile.svg";
-import pcImage from "../../assets/pc.svg";
+import mobileImage from "../../assets/mobile.png";
+import pcImage from "../../assets/pc.png";
+
+// react router dom
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -22,14 +25,16 @@ const Hero = () => {
           <b className="dark:text-[#7997D2] text-[#264073]">fun</b>.
         </p>
         <div className="flex items-center gap-8">
-          <button
+          <Link
+            to="/login"
             className={`${styles.button} dark:bg-[#7997D2] bg-[#406BBF] text-white dark:text-black font-semibold py-2 px-8 !rounded`}>
             Login
-          </button>
-          <button
-            className={`${styles.button} font-semibold dark:bg-[#132039] py-2 px-6 !rounded bg-[#D9E1F2] text-[#132039]`}>
+          </Link>
+          <Link
+            to="/sign_up"
+            className={`${styles.button} font-semibold dark:bg-[#132039] py-2 px-6 !rounded bg-[#D9E1F2] dark:text-white text-[#132039]`}>
             Sign Up
-          </button>
+          </Link>
         </div>
         <p className="dark:text-slate-500 text-[#264073]">
           <b className="dark:text-[#7997D2] text-[#264073]">23</b> people are
