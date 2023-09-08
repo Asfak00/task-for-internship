@@ -5,6 +5,7 @@ import { RxCross1 } from "react-icons/rx";
 
 // framer motion
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const MobileSidebar = ({ setOpen }) => {
   // get dark or light from localstorage
@@ -28,12 +29,14 @@ const MobileSidebar = ({ setOpen }) => {
           />
         </div>
         <ul className=" px-6 flex uppercase font-semibold text-[#132039] items-center gap-6 flex-col mt-8">
-          <li className="hover:bg-[#C6D3EC] py-2 w-full text-center">Home</li>
           <li className="hover:bg-[#C6D3EC] py-2 w-full text-center">
-            About Us
+            <Link to={"/"}>Home</Link>
           </li>
           <li className="hover:bg-[#C6D3EC] py-2 w-full text-center">
-            Support
+            <Link to={"/about-us"}>About Us</Link>
+          </li>
+          <li className="hover:bg-[#C6D3EC] py-2 w-full text-center">
+            <Link to={"/support"}>Support</Link>
           </li>
         </ul>
       </motion.div>
