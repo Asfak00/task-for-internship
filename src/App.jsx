@@ -8,12 +8,9 @@ import HomePage from "./Components/HomePage/HomePage";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Signup/SignUp";
 import UserDashboard from "./Components/UserDashboard/Dashboard";
-import CreateTask from "./Components/UserDashboard/CreateTask";
+import MainDashboard from "./Components/MainDashboard/MainDashboard";
 
 function App() {
-  // get authentication from local storage
-  const authenticate = JSON.parse(localStorage.getItem("isAuthenticated"));
-
   return (
     <>
       <BrowserRouter>
@@ -22,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/dashboard" element={<MainDashboard />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -7,6 +7,9 @@ import { RiDeleteBin5Fill } from "react-icons/ri";
 import Modal from "../../Modal/Modal";
 import EditTask from "./EditTask";
 
+// show more text
+import ShowMoreText from "react-show-more-text";
+
 const Task = ({ todoData }) => {
   const [todoDelete, setTodoDelete] = useState(false);
   const [todoEdit, setTodoEdit] = useState(false);
@@ -50,11 +53,17 @@ const Task = ({ todoData }) => {
         </div>
 
         <div className="py-4 border-b border-[#8CA6D9]">
-          <p
-            className={`${
-              darkTheme ? "text-[#D9E1F2]" : "text-[#132039]"
-            } line-clamp-2 `}>
-            {todoData?.description}
+          <p className={`${darkTheme ? "text-[#D9E1F2]" : "text-[#132039]"}  `}>
+            <ShowMoreText
+              lines={2}
+              show="Show more"
+              less="Show less"
+              anchorClass={`${
+                darkTheme ? "text-[#D9E1F2]" : "text-[#132039]"
+              } font-bold cursor-pointer`}
+              expanded={false}>
+              {todoData?.description}
+            </ShowMoreText>
           </p>
         </div>
         <div className="flex items-center justify-between mt-4">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Task from "./Task";
 
 const AllTask = () => {
@@ -11,7 +11,7 @@ const AllTask = () => {
         {allTodos ? (
           <>
             {allTodos?.map((todo) => (
-              <Task todoData={todo} />
+              <Task todoData={todo} key={todo.id} />
             ))}
           </>
         ) : (

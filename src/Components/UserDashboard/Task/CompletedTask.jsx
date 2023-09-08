@@ -1,7 +1,12 @@
 import React from "react";
+import AllTask from "./AllTask";
 
 const CompletedTask = () => {
-  return <div>CompletedTask</div>;
+  return (
+    <div>
+      <AllTask />
+    </div>
+  );
 };
 
 export default CompletedTask;

@@ -27,8 +27,12 @@ const CreateTask = ({ setCreateTask }) => {
   // get old todos in the local storage
   const todos = JSON.parse(localStorage.getItem("todo") || "[]");
 
+  // generating id for every single todo
+  const id = new Date().getTime().toString();
+
   // making all data is an object
   const todo = {
+    id,
     title,
     startDate,
     endDate,
