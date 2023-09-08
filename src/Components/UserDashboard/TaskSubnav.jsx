@@ -1,16 +1,17 @@
 import React from "react";
 
-// react icons
-import { SlArrowDown } from "react-icons/sl";
-
-const TaskSubnav = ({ totalTask }) => {
+const TaskSubnav = ({ totalTask, padding }) => {
   // get dark or light from localstorage
   const darkTheme = JSON.parse(localStorage.getItem("theme"));
 
+  // getting the todo data from local storage
+  const allTodos = JSON.parse(localStorage.getItem("todo"));
+
   return (
-    <nav className="w-full flex items-center justify-between 800px:px-32 px-2 py-6">
+    <nav
+      className={`w-full flex items-center justify-between 800px:px-${padding} px-2 py-6`}>
       <h3 className={`${darkTheme ? "text-[#8CA6D9]" : "text-[#264073]"}`}>
-        <b>{totalTask}</b> task found
+        <b>{allTodos?.length || 0}</b> task found
       </h3>
       <form>
         <label

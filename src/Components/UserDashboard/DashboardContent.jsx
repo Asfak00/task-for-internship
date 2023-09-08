@@ -21,7 +21,7 @@ const DashboardContent = ({ sidebarActive, setsidebarActive }) => {
             {active === 1 && (
               <>
                 <DashboardNav active={active} setActive={setActive} />
-                <TaskSubnav totalTask={6} />
+                <TaskSubnav totalTask={6} padding={32} />
                 <AllTask />
               </>
             )}
@@ -29,7 +29,7 @@ const DashboardContent = ({ sidebarActive, setsidebarActive }) => {
             {active === 2 && (
               <>
                 <DashboardNav active={active} setActive={setActive} />
-                <TaskSubnav totalTask={0} />
+                <TaskSubnav totalTask={0} padding={32} />
                 <CompletedTask />
               </>
             )}
@@ -37,7 +37,7 @@ const DashboardContent = ({ sidebarActive, setsidebarActive }) => {
             {active === 3 && (
               <>
                 <DashboardNav active={active} setActive={setActive} />
-                <TaskSubnav totalTask={6} />
+                <TaskSubnav totalTask={6} padding={32} />
                 <IncompletedTask />
               </>
             )}

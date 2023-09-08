@@ -15,7 +15,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(
     JSON.parse(localStorage.getItem("theme"))
       ? JSON.parse(localStorage.getItem("theme"))
-      : true
+      : false
   );
 
   const [open, setOpen] = useState(false);

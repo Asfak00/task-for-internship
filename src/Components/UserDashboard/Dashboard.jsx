@@ -10,14 +10,14 @@ const Dashboard = () => {
 
   return (
     <section
-      className={`w-full h-[100vh] ${
-        darkTheme ? "bg-[#0D1526]" : "bg-[#ECF0F9]"
+      className={`${
+        darkTheme ? "bg-[#0D1526]" : ""
       } max-w-[1200px] mx-auto flex`}>
       <div className="800px:w-[300px] w-[60px]">
         <DashboardSidebar setActive={setActtive} active={active} />
       </div>
       <div
-        className={`800px:w-[85%] w-[80%] ${
+        className={`800px:w-[100%] w-[80%] ${
           darkTheme ? "bg-[#060B13]" : "bg-white"
         }`}>
         <DashboardContent

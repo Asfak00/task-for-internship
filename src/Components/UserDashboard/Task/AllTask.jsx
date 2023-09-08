@@ -8,9 +8,15 @@ const AllTask = () => {
   return (
     <>
       <main className="grid grid-cols-1 800px:grid-cols-2 w-full px-2 800px:px-32 gap-4">
-        {allTodos?.map((todo) => (
-          <Task todoData={todo} />
-        ))}
+        {allTodos ? (
+          <>
+            {allTodos?.map((todo) => (
+              <Task todoData={todo} />
+            ))}
+          </>
+        ) : (
+          <div className=" font-semibold">No task yet!</div>
+        )}
       </main>
     </>
   );

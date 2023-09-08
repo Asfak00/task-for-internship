@@ -34,9 +34,9 @@ const DashboardSidebar = ({ setActive, active }) => {
   return (
     <>
       <aside
-        className={`w-full ${
+        className={`w-[60px] 800px:w-[280px] ${
           darkTheme ? "bg-[#0D1526]" : "bg-[#D9E1F2]"
-        } 800px:p-8 p-2 800px:py-4 py-8 `}>
+        } 800px:p-8 p-2 800px:py-4 py-8 min-h-[100vh] fixed top-0 left-0 1100px:left-18 1300px:left-24 overflow-y-scroll`}>
         <div className="w-full flex items-center justify-center flex-col">
           <img
             src={PhotoUrl ? PhotoUrl : avatar}
@@ -59,7 +59,7 @@ const DashboardSidebar = ({ setActive, active }) => {
 
         <button
           className={`${styles.button} ${
-            darkTheme ? "bg-[#7997D2] text-[#0D1526]" : null
+            darkTheme ? "bg-[#7997D2] !text-[#0D1526]" : null
           } flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center mt-12`}
           onClick={() => setCreateTask(true)}>
           <p className="text-[1rem] font-semibold 800px:block hidden">

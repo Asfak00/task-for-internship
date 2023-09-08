@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // react icons
-import { AiOutlineClockCircle } from "react-icons/ai";
+import { AiOutlineClockCircle, AiFillStar } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import Modal from "../../Modal/Modal";
@@ -23,11 +23,17 @@ const Task = ({ todoData }) => {
   return (
     <>
       <div
-        className={` w-full rounded p-4 transition duration-300 ${
+        className={` w-full relative rounded p-4 transition duration-300 ${
           darkTheme
             ? "bg-[#0D1526] hover:bg-[#264073]"
             : "bg-[#D9E1F2] hover:bg-[#C6D3EC] "
         }`}>
+        {todoData?.priority === "high" && (
+          <AiFillStar
+            className=" absolute top-[-5%] right-[-3%] rounded-full  text-[#fd9c2c] bg-[#ffffff]"
+            size={22}
+          />
+        )}
         <div className="flex items-center justify-between w-full">
           <h3
             className={`${
