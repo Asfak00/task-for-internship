@@ -3,6 +3,9 @@ import React from "react";
 // image
 import vectorImage from "../../assets/Vector.png";
 
+// framer motion
+import { motion } from "framer-motion";
+
 const Modal = ({ setTodoDelete }) => {
   // get dark or light from localstorage
   const darkTheme = JSON.parse(localStorage.getItem("theme"));
@@ -10,7 +13,10 @@ const Modal = ({ setTodoDelete }) => {
   return (
     <>
       <div className="w-full h-screen fixed top-0 left-0 bg-[#060b13a4] flex items-center justify-center z-50">
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
           className={`${
             darkTheme ? "bg-[#132039]" : "bg-[#ECF0F9]"
           } p-4 rounded`}>
@@ -45,7 +51,7 @@ const Modal = ({ setTodoDelete }) => {
               Ok
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

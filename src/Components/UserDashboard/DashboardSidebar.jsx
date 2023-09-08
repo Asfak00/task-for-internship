@@ -9,6 +9,7 @@ import { BiHomeAlt2 } from "react-icons/bi";
 import { CiSearch } from "react-icons/ci";
 import { IoNotificationsOutline, IoLogOutOutline } from "react-icons/io5";
 import { RxAvatar } from "react-icons/rx";
+import { LuLayoutDashboard } from "react-icons/lu";
 
 // styles
 import styles from "../../styles/styles";
@@ -66,6 +67,17 @@ const DashboardSidebar = ({ setActive, active }) => {
             Create Task
           </p>
           <AiOutlinePlus className="font-bold" />
+        </button>
+
+        <button
+          className={`${styles.button} ${
+            darkTheme ? "bg-[#7997D2] !text-[#0D1526]" : null
+          } flex  items-center gap-2 bg-[#406BBF]  w-full !rounded text-[#ECF0F9] py-2 justify-center`}
+          onClick={() => navigate("/dashboard")}>
+          <p className="text-[1rem] font-semibold 800px:block hidden">
+            Go Dashboard
+          </p>
+          <LuLayoutDashboard className="font-bold" />
         </button>
 
         <div

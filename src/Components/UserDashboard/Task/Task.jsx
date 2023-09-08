@@ -33,7 +33,9 @@ const Task = ({ todoData }) => {
         }`}>
         {todoData?.priority === "high" && (
           <AiFillStar
-            className=" absolute top-[-5%] right-[-3%] rounded-full  text-[#fd9c2c] bg-[#ffffff]"
+            className={` absolute top-[-5%] right-[-3%] rounded-full  text-[#fd9c2c]  ${
+              darkTheme ? "bg-[#0D1526]" : "bg-[#ffffff]"
+            }`}
             size={22}
           />
         )}

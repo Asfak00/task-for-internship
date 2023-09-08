@@ -65,8 +65,11 @@ const Account = () => {
     toast.success("Your information successfully updated!");
   };
 
+  // get dark or light from localstorage
+  const darkTheme = JSON.parse(localStorage.getItem("theme"));
+
   return (
-    <div className="p-2 800px:p-8 mx-auto">
+    <div className={`${darkTheme ? "bg-[#060B13]" : ""} p-2 800px:p-8 mx-auto`}>
       <form className="space-y-6 p-0 800px:p-6" onSubmit={handleFormSubmit}>
         <div className="w-full flex items-center justify-center">
           <div className="relative h-[110px] 800px:h-[150px]">
@@ -76,7 +79,10 @@ const Account = () => {
               className="800px:w-[150px] w-[100px] h-[100px] 800px:h-[150px] object-cover rounded-full border-[3px] border-[#3957db]"
             />
 
-            <div className="absolute w-[30px] h-[30px] bg-[#e3e9ee] bottom-[5px] rounded-full flex items-center justify-center right-[5px] cursor-pointer">
+            <div
+              className={`absolute w-[30px] h-[30px] bg-[#e3e9ee] bottom-[5px] rounded-full flex items-center justify-center right-[5px] cursor-pointer ${
+                darkTheme ? " !bg-[#3960AC]" : ""
+              }`}>
               <input
                 type="file"
                 id="profile/image"
@@ -85,7 +91,11 @@ const Account = () => {
               />
 
               <label htmlFor="profile/image">
-                <AiOutlineCamera className="cursor-pointer" />
+                <AiOutlineCamera
+                  className={`cursor-pointer ${
+                    darkTheme ? " !text-[#D9E1F2]" : ""
+                  }`}
+                />
               </label>
             </div>
           </div>
@@ -93,7 +103,9 @@ const Account = () => {
         <div>
           <label
             htmlFor="Username"
-            className="block text-sm font-medium text-gray-700">
+            className={`block text-sm font-medium text-gray-700 ${
+              darkTheme ? " !text-[#D9E1F2]" : ""
+            }`}>
             Username
           </label>
           <div className="mt-1">
@@ -104,14 +116,18 @@ const Account = () => {
               required
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+                darkTheme ? "bg-[#3960AC] text-[#D9E1F2]" : ""
+              }`}
             />
           </div>
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700">
+            className={`block text-sm font-medium text-gray-700 ${
+              darkTheme ? " !text-[#D9E1F2]" : ""
+            }`}>
             Email address
           </label>
           <div className="mt-1">
@@ -122,14 +138,18 @@ const Account = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+                darkTheme ? "bg-[#3960AC] text-[#D9E1F2]" : ""
+              }`}
             />
           </div>
         </div>
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700">
+            className={`block text-sm font-medium text-gray-700 ${
+              darkTheme ? " !text-[#D9E1F2]" : ""
+            }`}>
             Password
           </label>
           <div className="mt-1 relative">
@@ -140,7 +160,9 @@ const Account = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+                darkTheme ? "bg-[#3960AC] text-[#D9E1F2]" : ""
+              }`}
             />
             {visible ? (
               <AiOutlineEye
@@ -161,7 +183,9 @@ const Account = () => {
         <div>
           <label
             htmlFor="Bio"
-            className="block text-sm font-medium text-gray-700">
+            className={`block text-sm font-medium text-gray-700 ${
+              darkTheme ? " !text-[#D9E1F2]" : ""
+            }`}>
             Bio
           </label>
           <div className="mt-1">
@@ -172,14 +196,18 @@ const Account = () => {
               value={bio}
               maxLength={100}
               onChange={(e) => setBio(e.target.value)}
-              className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+              className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${
+                darkTheme ? "bg-[#3960AC] text-[#D9E1F2]" : ""
+              }`}></textarea>
           </div>
         </div>
 
         <div>
           <button
             type="submit"
-            className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+            className={`group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 ${
+              darkTheme ? "!bg-[#7997D2] !text-[#0D1526]" : ""
+            }`}>
             Update
           </button>
 

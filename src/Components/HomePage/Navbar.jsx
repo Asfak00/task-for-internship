@@ -10,7 +10,7 @@ import styles from "../../styles/styles";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import MobileSidebar from "./MobileSidebar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(
@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex items-center justify-between w-full px-8 py-6 max-w-[1200px] mx-auto">
+      <nav className="flex dark:bg-[#060B13] items-center justify-between w-full px-8 py-6 max-w-[1200px] mx-auto">
         <img
           src={logo}
           alt="logo"
@@ -46,9 +46,15 @@ const Navbar = () => {
         />
 
         <ul className=" items-center 800px:flex hidden  font-semibold text-[#132039] gap-8 list-none uppercase dark:text-[#9bbbfa]">
-          <li className={styles.menuHover}>home</li>
-          <li className={styles.menuHover}>about us</li>
-          <li className={styles.menuHover}>support</li>
+          <li className={styles.menuHover}>
+            <Link to={"/"}>home</Link>
+          </li>
+          <li className={styles.menuHover}>
+            <Link to={"/about-us"}>about us</Link>
+          </li>
+          <li className={styles.menuHover}>
+            <Link to={"/support"}>support</Link>
+          </li>
         </ul>
         <div className="flex items-center gap-5">
           <button>

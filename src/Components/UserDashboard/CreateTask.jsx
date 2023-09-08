@@ -56,9 +56,9 @@ const CreateTask = ({ setCreateTask }) => {
     <div className="bg-white">
       <div className="w-full h-screen fixed top-0 left-0 bg-[#00000030] flex items-center justify-center z-50">
         <motion.div
-          initial={{ opacity: 0, y: -500 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -500 }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0 }}
           className="w-[90%] 800px:w-[60%] h-[90vh] 800px:h-[75vh] rounded-md  relative shadow-sm overflow-y-scroll bg-[#ECF0F9]">
           <div className="bg-[#C6D3EC] w-full flex items-center justify-between px-8 py-2">
             <h3 className="text-[#132039] font-semibold text-[1.2rem]">

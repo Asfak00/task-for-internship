@@ -9,6 +9,8 @@ import Login from "./Components/Login/Login";
 import SignUp from "./Components/Signup/SignUp";
 import UserDashboard from "./Components/UserDashboard/Dashboard";
 import MainDashboard from "./Components/MainDashboard/MainDashboard";
+import AboutUs from "./Components/AboutUs";
+import Support from "./Components/Support";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/sign_up" element={<SignUp />} />
           <Route path="/user-dashboard" element={<UserDashboard />} />
           <Route path="/dashboard" element={<MainDashboard />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/support" element={<Support />} />
         </Routes>
       </BrowserRouter>
     </>
